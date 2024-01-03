@@ -38,12 +38,20 @@ function App() {
   const checkCallStatus = async () => {
     try {
       const response = await axios.get(`${flaskApiBaseUrl}/check-status/${recordId}`);
-      setPollingMessage(`Status: ${response.data.status}`);
+      const status = response.data.status;
+  
+      // Display the status value directly
+      if (status === 'call_unsuccessful') {
+        setPollingMessage('Waiting for you to call the number');
+      } else {
+        setPollingMessage(status); // This will be 'call_successful' or 'call_time_out'
+      }
     } catch (error) {
       console.error('Error polling API', error);
       setPollingMessage('Error polling API');
     }
   };
+  
 
   const handleSubmit = async () => {
     setButtonDisabled(true);
@@ -60,7 +68,7 @@ function App() {
       };
       const response = await axios.post(`${flaskApiBaseUrl}/assign-number`, payload);
       setRecordId(response.data.record_id); 
-      setMessage(`Assigned Number: ${response.data.assigned_number}, Record ID: ${response.data.record_id}`);
+      setMessage(`Assigned Number: 02178159${response.data.assigned_number}`);
     } catch (error) {
       console.error('Error sending data to API', error);
       setMessage('Error sending data to API');
