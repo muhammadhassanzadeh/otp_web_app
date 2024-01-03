@@ -1,0 +1,138 @@
+.App {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/public/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+details {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+}
+
+summary {
+  cursor: pointer;
+  padding: 12px 16.8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.settings {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 12px;
+  position: absolute;
+  top: 42px;
+  right: 0;
+  z-index: 3;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+details[open] .settings {
+  max-height: 500px;
+}
+
+.logo {
+  height: 200px;
+  margin-bottom: 50px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input[type="text"], input[type="number"], select {
+  width: 240px;
+  height: 36px;
+  font-size: 21.6px;
+  margin: 12px 0;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  font-size: 21.6px;
+  padding: 12px 24px;
+  background-color: #3417c6;
+  color: rgb(240, 237, 237);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 12px;
+}
+
+button:disabled {
+  background-color: #551010;
+  cursor: not-allowed;
+}
+
+.response, .pollingResponse, .errorResponse {
+  margin-top: 24px;
+  padding: 24px;
+  border-radius: 4px;
+  border: 1px solid #e77171;
+  width: 500px;
+  text-align: center;
+}
+
+.response {
+  background-color: #706767;
+  color: #fff;
+}
+
+.pollingResponse {
+  background-color: #25a225;
+  color: #fff;
+}
+
+.errorResponse {
+  background-color: #c23b22;
+  color: #fff;
+}
+
+details {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+}
+
+summary {
+  cursor: pointer;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+  user-select: none;
+}
+
+details[open] > summary {
+  background-color: #e0e0e0;
+}
